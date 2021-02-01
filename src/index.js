@@ -2,11 +2,9 @@ class ObjectUtilities {
   /* Your magic here */
   static mergeObjects = (objA, objB) => ({ ...objA, ...objB });
   static removePassword = (user) => delete user.password;
-  static freezeObj = (cleanUser) => {
-    Object.freeze(cleanUser);
-  };
-  static getOnlyValues = (frozenUser) => ();
-  static getOnlyProperties = (frozenUser) => {};
+  static freezeObj = (cleanUser) => Object.freeze(cleanUser);
+  static getOnlyValues = (frozenUser) => Object.values(frozenUser);
+  static getOnlyProperties = (frozenUser) => Object.keys(frozenUser);
 }
 
 const objA = {
@@ -29,7 +27,7 @@ const frozenUser = ObjectUtilities.freezeObj(cleanUser);
 const onlyValues = ObjectUtilities.getOnlyValues(frozenUser);
 console.log(onlyValues);
 
-/*const onlyProperties = ObjectUtilities.getOnlyProperties(frozenUser);
-console.log(onlyProperties);*/
+const onlyProperties = ObjectUtilities.getOnlyProperties(frozenUser);
+console.log(onlyProperties);
 
-// frozenUser.name = "Hello!"; // This should show an error
+frozenUser.name = "Hello!"; // This should show an error
