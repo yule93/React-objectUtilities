@@ -8,7 +8,7 @@ class ObjectUtilities {
 }
 
 const objA = {
-  name: "Nicolas",
+  name: "Minjoo",
   favFood: "Kimchi"
 };
 
